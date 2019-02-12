@@ -1,15 +1,21 @@
 package lk.ijse.dep.app.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "orderdetail")
 public class OrderDetail extends SuperEntity{
 
     @EmbeddedId
     private OrderDetailPK orderDetailPK;
     private int qty;
     private double unitPrice;
+    @ManyToOne
+    @JoinColumn(name = "itemCode",referencedColumnName = "code",insertable = false,updatable = false)
+    private Item item;
+    @ManyToOne
+    @JoinColumn(name = "orderID",referencedColumnName = "id",insertable = false,updatable = false)
+    private Order order;
 
     public OrderDetail() {
     }
@@ -49,5 +55,13 @@ public class OrderDetail extends SuperEntity{
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public Order getOrder() {
+        return order;
     }
 }
