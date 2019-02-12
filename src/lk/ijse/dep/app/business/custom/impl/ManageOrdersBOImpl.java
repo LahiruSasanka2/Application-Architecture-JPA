@@ -6,12 +6,11 @@ import lk.ijse.dep.app.dao.DAOFactory;
 import lk.ijse.dep.app.dao.custom.CustomerDAO;
 import lk.ijse.dep.app.dao.custom.ItemDAO;
 import lk.ijse.dep.app.dao.custom.OrderDAO;
-import lk.ijse.dep.app.dto.ItemDTO;
-import lk.ijse.dep.app.dto.OrderDTO;
-import lk.ijse.dep.app.dto.OrderDTO2;
+import lk.ijse.dep.app.dto.*;
 import lk.ijse.dep.app.util.JPAUtil;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageOrdersBOImpl implements ManageOrdersBO {
@@ -79,5 +78,10 @@ public class ManageOrdersBOImpl implements ManageOrdersBO {
             em.getTransaction().rollback();
             throw ex;
         }
+    }
+
+    @Override
+    public void addCustomerOrder(CustomerDTO customerDTO, OrderDTO orderDTO, ArrayList<OrderDetailDTO> orderDetailDTOS, ItemDTO itemDTO) throws Exception {
+
     }
 }

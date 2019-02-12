@@ -15,6 +15,7 @@ public class JPAUtil {
     private static EntityManagerFactory buildEntityManagerFactory(){
         try {
             File jpaPropFile = new File("settings/application.properties");
+            System.out.println(jpaPropFile.getAbsoluteFile());
             Properties jpaProp = new Properties();
             FileInputStream fileInputStream = new FileInputStream(jpaPropFile);
             jpaProp.load(fileInputStream);
