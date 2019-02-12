@@ -1,7 +1,12 @@
 package lk.ijse.dep.app.entity;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
+@Entity
 public class OrderDetail extends SuperEntity{
 
+    @EmbeddedId
     private OrderDetailPK orderDetailPK;
     private int qty;
     private double unitPrice;

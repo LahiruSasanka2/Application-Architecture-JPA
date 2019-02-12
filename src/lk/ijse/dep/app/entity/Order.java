@@ -1,11 +1,19 @@
 package lk.ijse.dep.app.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.sql.Date;
 
+@Entity
 public class Order extends SuperEntity{
 
+    @Id
     private String id;
     private Date date;
+    @ManyToOne
+    @JoinColumn(name = "customerId", referencedColumnName = "id")
     private String customerId;
 
     public Order() {

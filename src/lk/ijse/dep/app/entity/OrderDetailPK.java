@@ -1,10 +1,15 @@
 package lk.ijse.dep.app.entity;
 
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
 import java.io.Serializable;
 
+@Embeddable
 public class OrderDetailPK implements Serializable {
 
+    @JoinColumn(name = "orderId")
     private String orderId;
+    @JoinColumn(name = "itemCode")
     private String itemCode;
 
     public OrderDetailPK() {
