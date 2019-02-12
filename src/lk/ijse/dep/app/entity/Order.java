@@ -12,8 +12,8 @@ public class Order extends SuperEntity{
     @Id
     private String id;
     private Date date;
-    @ManyToOne
-    @JoinColumn(name = "customerId", referencedColumnName = "id")
+//    @ManyToOne
+//    @JoinColumn(name = "customerId", referencedColumnName = "id")
     private String customerId;
 
     public Order() {

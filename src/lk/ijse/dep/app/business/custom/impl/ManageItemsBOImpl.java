@@ -14,8 +14,8 @@ public class ManageItemsBOImpl implements ManageItemsBO {
 
     private ItemDAO itemDAO;
 
-    public ManageItemsBOImpl(ItemDAO itemDAO) {
-        this.itemDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
+    public ManageItemsBOImpl() {
+        itemDAO = DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.ITEM);
     }
 
     @Override
@@ -24,9 +24,9 @@ public class ManageItemsBOImpl implements ManageItemsBO {
         try {
             itemDAO.setEntityManager(em);
             em.getTransaction().begin();
-            List<ItemDTO> customerDTOS = itemDAO.findAll().map(Converter::<ItemDTO>getDTOList).get();
+            List<ItemDTO> itemDTOS = itemDAO.findAll().map(Converter::<ItemDTO>getDTOList).get();
             em.getTransaction().commit();
-            return customerDTOS;
+            return itemDTOS;
         } catch (Exception ex) {
             em.getTransaction().rollback();
             throw ex;

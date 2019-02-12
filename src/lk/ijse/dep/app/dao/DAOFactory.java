@@ -11,9 +11,6 @@ public class DAOFactory {
         CUSTOMER,ITEM,ORDER, ORDER_DETAIL,QUERY;
     }
 
-//    public static final int DAO_CUSTOMER = 0;
-//    public static final int DAO_ITEM = 1;
-
     private DAOFactory() {
 
     }
@@ -29,17 +26,14 @@ public class DAOFactory {
         switch (daoType) {
             case CUSTOMER:
                 return (T) new CustomerDAOImpl();
+            case ITEM:
+                return (T) new ItemDAOImpl();
+            case ORDER:
+                return (T) new OrderDAOImpl();
+            case ORDER_DETAIL:
+                return (T) new OrderDetailsDAOImpl();
             default:
                 return null;
         }
     }
-
-//    public CustomerDAO getCustomerDAO(){
-//        return new CustomerDAOImpl();
-//    }
-//
-//    public ItemDAO getItemDAO(){
-//        return new ItemDAOImpl();
-//    }
-
 }
